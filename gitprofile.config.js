@@ -29,8 +29,7 @@ const config = {
     email: 'contact@jeanlaurent.fr',
   },
   resume: {
-    fileUrl:
-      'https://repository.jeanlaurent.fr/LAURENT_CV.pdf', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: 'https://repository.jeanlaurent.fr/LAURENT_CV.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
     'PHP',
@@ -54,7 +53,7 @@ const config = {
       from: 'September 2021',
       to: 'October 2022',
       companyLink: '',
-    }
+    },
   ],
   /* certifications: [
     {
@@ -66,7 +65,8 @@ const config = {
   ], */
   education: [
     {
-      institution: 'LICENCE PROFESSIONNELLE MÉTIERS DE L’INFORMATIQUE : APPLICATIONS WEB',
+      institution:
+        'LICENCE PROFESSIONNELLE MÉTIERS DE L’INFORMATIQUE : APPLICATIONS WEB',
       degree: '',
       from: '2021',
       to: '2022',
@@ -125,10 +125,7 @@ const config = {
     hideAvatarRing: false,
 
     // Available themes. To remove any theme, exclude from here.
-    themes: [
-      'light',
-      'dark',
-    ],
+    themes: ['light', 'dark'],
 
     // Custom theme
     customTheme: {

@@ -55,7 +55,12 @@ const GitProfile = ({ config }) => {
 
   const loadData = useCallback(() => {
     axios
-      .get(`https://api.github.com/users/${sanitizedConfig.github.username}`)
+      .get(`https://api.github.com/users/${sanitizedConfig.github.username}`, {
+        headers: {
+          'Content-Type': 'application/vnd.github.v3+json',
+          authorization: `${import.meta.env.VITE_API_BEARER_TOKEN}`,
+        },
+      })
       .then((response) => {
         let data = response.data;
 
@@ -91,6 +96,7 @@ const GitProfile = ({ config }) => {
           .get(url, {
             headers: {
               'Content-Type': 'application/vnd.github.v3+json',
+              authorization: `${import.meta.env.VITE_API_BEARER_TOKEN}`,
             },
           })
           .then((response) => {
