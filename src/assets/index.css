@@ -73,6 +73,12 @@ svg {
   animation-duration: 1s;
 }
 
+.github-page-link {
+  padding: .65em;
+  margin: -1em;
+  transition: all ease-in-out 0.3s;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;

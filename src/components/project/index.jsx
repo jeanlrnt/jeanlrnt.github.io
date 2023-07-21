@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 import { AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
-import { MdInsertLink } from 'react-icons/md';
+import { MdBookmarkBorder, MdInsertLink } from 'react-icons/md';
 import { ga, languageColor, skeleton } from '../../helpers/utils';
 
 const Project = ({ repo, loading, github, googleAnalytics }) => {
@@ -86,11 +86,37 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
       >
         <div className="flex justify-between flex-col p-8 h-full w-full">
           <div>
-            <div className="flex items-center">
+            <div className="flex items-center justify-between">
               <div className="card-title text-lg tracking-wide flex text-base-content opacity-60">
                 <MdInsertLink className="my-auto" />
                 <span>{item.name}</span>
               </div>
+              {item.homepage && (
+                <a
+                  href={item.homepage}
+                  className="github-page-link rounded-lg text-yellow-600 hover:bg-yellow-600 hover:text-white"
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    try {
+                      if (googleAnalytics?.id) {
+                        ga.event({
+                          action: 'Click project',
+                          params: {
+                            project: item.name,
+                          },
+                        });
+                      }
+                    } catch (error) {
+                      console.error(error);
+                    }
+
+                    window?.open(item.homepage, '_blank');
+                  }}
+                >
+                  <MdBookmarkBorder className="text-xl" />
+                </a>
+              )}
             </div>
             <p className="mb-5 mt-1 text-base-content text-opacity-60 text-sm">
               {item.description}
