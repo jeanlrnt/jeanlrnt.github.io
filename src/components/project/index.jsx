@@ -67,6 +67,7 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
         key={index}
         onClick={(e) => {
           e.preventDefault();
+          e.stopPropagation();
 
           try {
             if (googleAnalytics?.id) {
@@ -97,6 +98,7 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
                   className="github-page-link rounded-lg text-yellow-600 hover:bg-yellow-600 hover:text-white"
                   onClick={(e) => {
                     e.preventDefault();
+                    e.stopPropagation();
 
                     try {
                       if (googleAnalytics?.id) {
